@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+  Free AI Logo/Icon Maker (Really Free)
+{% endblock %}
+
+{% block content %}
+  Following categories:
+  {% for each in categories %}
+    <div>
+      <a href=" {% url "categorydetailview" logo_category=each.1 %}">{{ each.0 }} Logos</a>
+    </div>
+  {% endfor %}
+{% endblock %}
