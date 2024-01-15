@@ -10,10 +10,10 @@ https://django-template.vercel.app/
 
 ## How it Works
 
-Our Django application, `example` is configured as an installed application in `vercel_app/settings.py`:
+Our Django application, `example` is configured as an installed application in `portfolio/settings.py`:
 
 ```python
-# vercel_app/settings.py
+# portfolio/settings.py
 INSTALLED_APPS = [
     # ...
     'example',
@@ -23,22 +23,22 @@ INSTALLED_APPS = [
 We allow "\*.vercel.app" subdomains in `ALLOWED_HOSTS`, in addition to 127.0.0.1:
 
 ```python
-# vercel_app/settings.py
+# portfolio/settings.py
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 ```
 
 The `wsgi` module must use a public variable named `app` to expose the WSGI application:
 
 ```python
-# vercel_app/wsgi.py
+# portfolio/wsgi.py
 app = get_wsgi_application()
 ```
 
-The corresponding `WSGI_APPLICATION` setting is configured to use the `app` variable from the `vercel_app.wsgi` module:
+The corresponding `WSGI_APPLICATION` setting is configured to use the `app` variable from the `portfolio.wsgi` module:
 
 ```python
-# vercel_app/settings.py
-WSGI_APPLICATION = 'vercel_app.wsgi.app'
+# portfolio/settings.py
+WSGI_APPLICATION = 'portfolio.wsgi.app'
 ```
 
 There is a single view which renders the current time in `example/views.py`:
@@ -77,10 +77,10 @@ urlpatterns = [
 ]
 ```
 
-Finally, it's made accessible to the Django server inside `vercel_app/urls.py`:
+Finally, it's made accessible to the Django server inside `portfolio/urls.py`:
 
 ```python
-# vercel_app/urls.py
+# portfolio/urls.py
 from django.urls import path, include
 
 urlpatterns = [
