@@ -28,10 +28,12 @@ class LogoMakerIndexView(ListView):
 class CategoryDetailView(DetailView):
     model = Logo_Category
     template_name = "logomaker/category_detail.html"
-    pk_url_kwarg = "logo_category"
-
+    slug_field = "category_slug"
+    slug_url_kwarg = "logo_category"
+    
+    
     def get_queryset(self):
         category_passed = self.kwargs.get("logo_category")
-        qset = get_object_or_404(self.model, category_slug=category_passed)
+        queryset = get_object_or_404(self.model, category_slug=category_passed)
         return super().get_queryset()
             

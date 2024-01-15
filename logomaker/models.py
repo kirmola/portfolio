@@ -8,7 +8,7 @@ from autoslug import AutoSlugField
 class Logo_Category(models.Model):
 
     category_name = models.CharField(_("Category Name"), max_length=50)
-    category_slug = AutoSlugField(populate_from="category_name", primary_key=True)
+    category_slug = AutoSlugField(populate_from="category_name")
 
     class Meta:
         verbose_name = _("Logo Category")
