@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Moody AI{% endblock title %}
+
+{% block content %}
+<h1>Customize your AI, your way</h1>
+<form action="respond/" method="post">
+    {% csrf_token %}
+    <input type="text">
+    <button type="submit">Send Request</button>
+</form>
+{% endblock content %}
