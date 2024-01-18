@@ -81,6 +81,10 @@ if DEBUG:
           "django_browser_reload.middleware.BrowserReloadMiddleware",
 
     ]
+    NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
+
+else:
+    NPM_BIN_PATH = "/usr/local/bin/npm"
 
 ROOT_URLCONF = 'portfolio.urls'
 
