@@ -111,10 +111,10 @@ WSGI_APPLICATION = 'portfolio.wsgi.app'
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 if DEBUG:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": "portfolio.sqlite3",
-        }
+        # "default": {
+        #     "ENGINE": "django.db.backends.sqlite3",
+        #     "NAME": "portfolio.sqlite3",
+        # }
     }
 else:
     DATABASES = {
