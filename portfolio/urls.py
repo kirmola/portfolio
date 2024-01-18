@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('logo-maker/', include('logomaker.urls')),
     path('moody-ai/', include('moodyai.urls')),
-    path("__reload__/", include("django_browser_reload.urls")),
 
 ]
 
