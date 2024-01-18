@@ -1,16 +1,36 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %}Welcome to Moody AI{% endblock title %}
+{% block title %}
+  Welcome to Moody AI
+{% endblock %}
 {% block custom_css_js %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js" integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-{% endblock custom_css_js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js" integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
 {% block content %}
-<h1>Customize your AI, your way</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{form}}
-    <button hx-post="{% url "parsemoodform" %}" hx-target="#results" hx-swap="innerHTML">Send Request</button>
-</form>
+  <section class="px-4 py-12 mx-auto max-w-7xl">
+    <div class="mx-auto md:w-11/12 xl:w-8/12 md:text-center">
+      <h1 class="mb-3 text-4xl font-bold text-gray-900 md:text-5xl md:leading-tight md:font-extrabold">Customize Moody, your way!</h1>
+      <p class="font-bold text-xl mb-3">Explore Moody AI, it's waiting to talk to you, or not maybe!</p>
+      <form class="pt-1 mx-auto mb-8 lg:grid-cols-6 md:w-11/12">
+        {% csrf_token %}
+        <div class="mb-8 my-8 md:text-2xl font-bold">{{ form.query }}</div>
+        <div class="space-y-8">
+          <div class="grid grid-cols-2 gap-4 my-10 md:text-2xl">
+            <div class="">{{ form.language_style }}</div>
+            <div class="">{{ form.mood_style }}</div>
+        </div>
 
-<div id="results"></div>
-{% endblock content %}
+        <button class="btn btn-primary rounded-full  w-full md:text-2xl" hx-post="{% url 'parsemoodform' %}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#skeleton" hx-on:click="document.getElementById('results').innerHTML=''">Trigger Moody</button>
+    </form>
+    </div>
+  </section>
+
+  <div id="results"></div>
+  <div id="skeleton" class="htmx-indicator">
+    <div class="space-y-2" aria-live="assertive" aria-atomic="true">
+      <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+    </div>
+  </div>
+{% endblock %}

@@ -26,6 +26,14 @@ MOODS_STYLE = (
 
 
 class PersonalityForm(forms.Form):
-    query = forms.CharField( max_length="200", required=True)
-    language_style = forms.ChoiceField(choices=LANGUAGE_STYLES, required=True)   
-    mood_style = forms.ChoiceField(choices=MOODS_STYLE, required=True)
+    query = forms.CharField(max_length="200", required=True, widget=forms.TextInput(attrs={
+        "placeholder": "Ask Moody about anything!",
+        "class":"rounded-full w-full md:text-3xl text-center"
+        
+    }))
+    language_style = forms.ChoiceField(choices=LANGUAGE_STYLES, required=True, widget=forms.Select(attrs={
+        "class":"rounded-md md:text-2xl w-full"
+    }))   
+    mood_style = forms.ChoiceField(choices=MOODS_STYLE, required=True, widget=forms.Select(attrs={
+        "class":"rounded-md md:text-2xl w-full"
+    }))
