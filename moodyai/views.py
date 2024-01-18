@@ -22,7 +22,6 @@ class MoodyAIIndexView(TemplateView):
 class ParseMoodForm(TemplateView):
     form_class = PersonalityForm
     template_name = "moodyai/index.html"
-    content_type = "application/json"
 
     
         
@@ -32,19 +31,22 @@ class ParseMoodForm(TemplateView):
         language_style = post_data.get("language_style")
         query = post_data.get("query")
         instance = GenerateResponse()
-        try:
-            api_response = instance.generate_response(query=query, mood_style=mood_style, language_style=language_style)
-            
-        except:
-            error = api_response["errors"]
-            main_response = f"Something is not in correct place. Please Report this problem. Problem is: {error}"
 
-        else:
+        api_response = instance.generate_response(query=query, mood_style=mood_style, language_style=language_style)
+        if api_response["success"] is True:
             main_response = api_response["result"]["response"]
-
-        return HttpResponse(
-            f'''
+            return HttpResponse(
+            f'''            
             <p>{main_response}</p>
-            
             '''
         )
+
+        else:
+            error = api_response['errors'][0]['message']
+            main_response = f"Something is not in correct place. Please Report this problem. Problem is: {error}"
+            return HttpResponse(
+            f'''            
+            <p>{main_response}</p>
+            '''
+        )
+
