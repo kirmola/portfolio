@@ -81,7 +81,11 @@ if DEBUG:
           "django_browser_reload.middleware.BrowserReloadMiddleware",
 
     ]
-    NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
+    try:
+        NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
+    except:
+        NPM_BIN_PATH = "/node18/bin/npm"
+
 
 else:
     NPM_BIN_PATH = "/node18/bin/npm"
