@@ -14,6 +14,7 @@ from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from os import environ
 import dj_database_url
+from shutil import which
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -84,7 +85,7 @@ if DEBUG:
     NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
 else:
-    NPM_BIN_PATH = "/usr/local/bin/npm"
+    NPM_BIN_PATH = which("npm")
 
 ROOT_URLCONF = 'portfolio.urls'
 
