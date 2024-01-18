@@ -1,8 +1,8 @@
 # build_files.sh
-python3.9 -m pip install -r requirements.txt
+pip install -r requirements.txt
 
-# make migrations
 python3.9 manage.py tailwind build
+# make migrations
 
 if [ $ENV = "prod" ]; then
     python3.9 manage.py migrate
