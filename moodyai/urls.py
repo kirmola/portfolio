@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import MoodyAIIndexView
+from .views import MoodyAIIndexView, ParseMoodForm
 
 urlpatterns = [
     path("", MoodyAIIndexView.as_view(), name="moodyaiindex"),
-    path("respond/", MoodyAIIndexView.as_view(), name="moodyairespond")
+    path("generate/", ParseMoodForm.as_view(), name="parsemoodform"),
 ]
