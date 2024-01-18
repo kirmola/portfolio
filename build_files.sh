@@ -3,7 +3,6 @@ pip install -r requirements.txt
 
 # make migrations
 
-python3.9 manage.py collectstatic --noinput
 
 if [ $ENV = "prod" ]; then
     python3.9 manage.py migrate
