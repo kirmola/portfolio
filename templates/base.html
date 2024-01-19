@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static tailwind_tags %}
+
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Welcome to Aman's Portfolio{% endblock title %}</title>
+    {% tailwind_css %}
+    <script defer src="{% static 'js/main.js' %}"></script>
     {% block custom_css_js %}{% endblock custom_css_js %}
 </head>
 <body>
-    {% block content %}{% endblock content %}
+    {% include "layouts/navbar.html" %}
+    <main class="container mx-auto">
+        {% block content %}{% endblock content %}
+    </main>
+    {% include "layouts/footer.html" %}
+
 </body>
 </html>

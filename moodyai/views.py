@@ -15,7 +15,7 @@ class MoodyAIIndexView(TemplateView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context["form"] = PersonalityForm().as_p()
+        context["form"] = PersonalityForm()
         return context
     
 
@@ -23,16 +23,21 @@ class ParseMoodForm(TemplateView):
     form_class = PersonalityForm
     template_name = "moodyai/index.html"
 
+    async def get(self, request):
+        return await render(request, "moodyai/index.html")
     
-        
-    def post(self,request):
+    async def generate_response(self, query, mood_style, language_style):
+        instance = GenerateResponse()
+        return await instance.generate_response(query=query, mood_style=mood_style, language_style=language_style)
+
+    async def post(self,request):
         post_data = request.POST
         mood_style = post_data.get("mood_style")
         language_style = post_data.get("language_style")
         query = post_data.get("query")
-        instance = GenerateResponse()
+        
 
-        api_response = instance.generate_response(query=query, mood_style=mood_style, language_style=language_style)
+        api_response = await self.generate_response(query=query, mood_style=mood_style, language_style=language_style)
         if api_response["success"] is True:
             main_response = api_response["result"]["response"]
             return HttpResponse(

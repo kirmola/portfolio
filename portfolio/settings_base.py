@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from os import environ
-import dj_database_url
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -27,10 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_random_secret_key()
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if environ["ENV"] == "dev" else False
-
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', "localhost"]
 
 
 # Application definition
@@ -47,6 +42,14 @@ INSTALLED_APPS = [
     "moodyai",
 ]+[
     "django_htmx",
+    'tailwind',
+    'theme',
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 MIDDLEWARE = [
@@ -62,7 +65,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'portfolio.urls'
+
 
 TEMPLATES = [
     {
@@ -89,19 +92,6 @@ WSGI_APPLICATION = 'portfolio.wsgi.app'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
-if DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": "portfolio.sqlite3",
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=environ['DATABASE_URL'], engine='django_cockroachdb')
-
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -127,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
