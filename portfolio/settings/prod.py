@@ -20,7 +20,7 @@ MIDDLEWARE+=[
 
 
 DATABASES = {
-    'default': dj_database_url.config(default=environ['DATABASE_URL'], engine='django_cockroachdb')
+    # 'default': dj_database_url.config(default=environ['DATABASE_URL'], engine='django_cockroachdb')
 }
 
 ALLOWED_HOSTS = [".vercel.app",]
