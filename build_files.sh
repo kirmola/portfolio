@@ -1,13 +1,12 @@
 # build_files.sh
+mkdir staticfiles_build
 pip install -r requirements.txt
 which npm
 
 if [ $ENV = "prod" ]; then
 
     echo "Now Running on PRODUCTION environment"
-    mkdir staticfiles_build
     python3.9 manage.py migrate
-    python3.9 manage.py tailwind build
     python3.9 manage.py collectstatic --noinput
     python3.9 manage.py createsuperuser --noinput
 
