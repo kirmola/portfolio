@@ -1,5 +1,4 @@
 # build_files.sh
-mkdir staticfiles_build
 pip install -r requirements.txt
 which npm
 
