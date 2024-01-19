@@ -4,7 +4,7 @@
   Welcome to Moody AI
 {% endblock %}
 {% block custom_css_js %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js" integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{% static 'js/htmx.min.js' %}"></script>
 {% endblock %}
 {% block content %}
   <section class="px-4 py-12 mx-auto max-w-7xl">
@@ -20,7 +20,7 @@
             <div class="">{{ form.mood_style }}</div>
         </div>
 
-        <button class="btn btn-primary rounded-full  w-full md:text-2xl" hx-post="{% url 'parsemoodform' %}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#skeleton" hx-on:click="document.getElementById('results').innerHTML=''">Trigger Moody</button>
+        <button class="btn btn-primary rounded-full  w-full md:text-3xl" hx-post="{% url 'parsemoodform' %}" hx-target="#results" hx-swap="innerHTML" hx-indicator="#skeleton" hx-on:click="document.getElementById('results').innerHTML=''">Trigger Moody</button>
     </form>
     </div>
   </section>

@@ -7,7 +7,6 @@ if [ $ENV = "prod" ]; then
     echo "Now Running on PRODUCTION environment"
 
     python3.9 manage.py migrate
-    python3.9 manage.py tailwind build
     python3.9 manage.py collectstatic --noinput
     python3.9 manage.py createsuperuser --noinput
 

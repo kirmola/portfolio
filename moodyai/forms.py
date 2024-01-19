@@ -32,8 +32,8 @@ class PersonalityForm(forms.Form):
         
     }))
     language_style = forms.ChoiceField(choices=LANGUAGE_STYLES, required=True, widget=forms.Select(attrs={
-        "class":"rounded-md md:text-2xl w-full"
+        "class":"rounded-full md:text-2xl w-full"
     }))   
     mood_style = forms.ChoiceField(choices=MOODS_STYLE, required=True, widget=forms.Select(attrs={
-        "class":"rounded-md md:text-2xl w-full"
+        "class":"rounded-full md:text-2xl w-full"
     }))
