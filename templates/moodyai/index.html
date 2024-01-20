@@ -18,12 +18,29 @@
             <div class="">{{ form.language_style }}</div>
             <div class="">{{ form.mood_style }}</div>
           </div>
-          <button hx-get="{% url "parsemoodform" %}" hx-include="*" hx-swap="none" class="btn btn-primary rounded-full w-full md:text-3xl" onclick="startSSE();document.getElementById('results').innerHTML=''">Trigger Moody</button>
+          <button hx-get="{% url "parsemoodform" %}" hx-indicator="#spinner" hx-target="#results" hx-include="*" hx-swap="none" class="btn btn-outline-primary rounded-full w-full md:text-3xl" onclick="startSSE();document.getElementById('results').innerHTML=''">Trigger Moody 
+            <div id="spinner" class="htmx-indicator spinner text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+            </button>
         </div>
       </div>
     </div>
   </section>
 
+  
+
+
+  {% comment %} <div class="mx-3 grid grid-cols-1">
+    <div class="card">
+      <div class="card-header">
+        <div id="preparing_results" class="font-semibold text-gray-900">Preparing results....</div>
+      </div>
+      <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
+    </div>
+  </div> {% endcomment %}
+  
+  
   <div id="results"></div>
 
   <script>
