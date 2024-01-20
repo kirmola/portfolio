@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-    darkMode: 'class',
     content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
@@ -20,7 +19,6 @@ module.exports = {
          * Adjust the following line to match your project structure.
          */
         '../../templates/**/*.html',
-        '../../templates/*.html',
 
         /*
          * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
@@ -54,8 +52,8 @@ module.exports = {
          */
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
-        require('kutty'),
-
+        require('kutty')
     ],
 }
