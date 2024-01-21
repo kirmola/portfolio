@@ -20,7 +20,7 @@ DATABASES = {
     # 'default': dj_database_url.config(default=environ['DATABASE_URL'], engine='django_cockroachdb')
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".onrender.com"]
 
 RENDER_EXTERNAL_HOSTNAME = environ.get('RENDER_EXTERNAL_HOSTNAME')
 
