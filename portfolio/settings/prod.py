@@ -29,7 +29,7 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
-NPM_BIN_PATH = which("npm")
+NPM_BIN_PATH = "/opt/render/project/nodes/node-20.10.0/bin/npm"
 
 ROOT_URLCONF = 'portfolio.urls'
 
