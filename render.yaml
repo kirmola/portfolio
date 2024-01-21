@@ -8,11 +8,13 @@ services:
     name: portfolio
     runtime: python
     plan: free
-    buildCommand: "./build.sh && python manage.py tailwind build"
+    buildCommand: "./build.sh"
     startCommand: "gunicorn portfolio.wsgi:application"
     envVars:
       - key: WEB_CONCURRENCY
         value: 4
+      - key: NODE_VERSION
+        value: 20.10.0
       # - key: DATABASE_URL
       #   fromDatabase:
       #     name: mysite
