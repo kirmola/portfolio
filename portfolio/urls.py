@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('logo-maker/', include('logomaker.urls')),
+    path('', views.index, name="homepage"),
     path('moody-ai/', include('moodyai.urls')),
+    path('admin/', admin.site.urls),
 
 ]
 
