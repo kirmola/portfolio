@@ -1,7 +1,7 @@
 from portfolio.settings_base import *
 from os import environ
 
-DEBUG = 'RENDER' not in environ
+DEBUG = True
 
 
 INSTALLED_APPS+=[
