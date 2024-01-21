@@ -4,12 +4,8 @@ from os import name as os_name
 
 DEBUG = True
 
-INSTALLED_APPS +=[
-
-]
-
 INSTALLED_APPS+=[
-        'django_browser_reload',
+    'django_browser_reload',
     
 ]
 
