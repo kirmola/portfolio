@@ -1,7 +1,6 @@
 from portfolio.settings_base import *
 import dj_database_url
 from os import environ
-from shutil import which
 
 DEBUG = False
 
@@ -29,7 +28,7 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
-NPM_BIN_PATH = "/opt/render/project/nodes/node-20.10.0/bin/npm"
+NPM_BIN_PATH = ""
 
 ROOT_URLCONF = 'portfolio.urls'
 
