@@ -21,7 +21,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="homepage"),
-    path('moody-ai/', include('moodyai.urls')),
     path('admin/', admin.site.urls),
 
 ]
