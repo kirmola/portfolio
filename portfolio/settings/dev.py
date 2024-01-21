@@ -17,7 +17,7 @@ MIDDLEWARE+=[
 
 DATABASES = {}
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
 
 if os_name == "nt":
     NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
