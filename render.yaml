@@ -8,7 +8,7 @@ services:
     name: portfolio
     runtime: python
     plan: free
-    buildCommand: "./build.sh"
+    buildCommand: "./build.sh && python manage.py tailwind build"
     startCommand: "gunicorn portfolio.wsgi:application"
     envVars:
       - key: WEB_CONCURRENCY
