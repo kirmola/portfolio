@@ -2,7 +2,7 @@ from portfolio.settings_base import *
 import dj_database_url
 from os import environ
 
-DEBUG = False
+DEBUG = 'RENDER' not in environ
 
 
 INSTALLED_APPS+=[
@@ -17,10 +17,10 @@ MIDDLEWARE+=[
 
 
 DATABASES = {
-    # 'default': dj_database_url.config(default=environ['DATABASE_URL'], engine='django_cockroachdb')
+    'default': dj_database_url.config(default=environ['DATABASE_URL'])
 }
 
-ALLOWED_HOSTS = [".onrender.com"]
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = environ.get('RENDER_EXTERNAL_HOSTNAME')
 
