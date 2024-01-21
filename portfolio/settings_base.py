@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]+[
-    "logomaker",
-    "moodyai",
+    # "logomaker",
+    # "moodyai",
+    "moodyai.apps.MoodyaiConfig"
 ]+[
     "django_htmx",
     'tailwind',
