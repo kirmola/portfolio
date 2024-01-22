@@ -38,12 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]+[
-    "logomaker",
-    "moodyai",
-]+[
     "django_htmx",
     'tailwind',
     'theme',
+]+[
+    "moodyai"
 ]
 
 TAILWIND_APP_NAME = 'theme'

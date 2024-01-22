@@ -1,10 +1,8 @@
 from django.urls import path
 from .views import (
-    MoodyAIIndexView,
-    ParseMoodForm
+    MoodyIndexView
 )
 
 urlpatterns = [
-    path("", MoodyAIIndexView.as_view(), name="moodyaiindex"),
-    path("generate/", ParseMoodForm.as_view(), name="parsemoodform"),
+    path("", MoodyIndexView.as_view(), name="moody_home")
 ]
