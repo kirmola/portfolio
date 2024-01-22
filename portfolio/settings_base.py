@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django_htmx",
     'tailwind',
     'theme',
+]+[
+    "moodyai"
 ]
 
 TAILWIND_APP_NAME = 'theme'

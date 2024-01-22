@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.index, name="homepage"),
+    path('', HomePageView.as_view(), name="homepage"),
+    path('moody-ai/', MoodyIndexView.as_view(), name="moody_home"),
+    path('about/', PagesView.as_view(), name="about_page"),
+
     path('admin/', admin.site.urls),
 
 ]

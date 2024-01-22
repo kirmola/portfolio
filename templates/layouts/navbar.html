@@ -6,9 +6,9 @@
       </a>
       <div class="flex items-center space-x-1">
         <div class="hidden space-x-1 md:inline-flex">
-          <a href="#" class="btn btn-sm btn-link">Home</a>
-          {% comment %} <a href="#" class="btn btn-sm btn-link">About</a>
-          <a href="#" class="btn btn-sm btn-link">Blog</a>
+          <a href="{% url "moody_home" %}" class="btn btn-sm btn-link">Moody AI</a>
+          <a href="{% url "about_page" %}" class="btn btn-sm btn-link">About</a>
+          {% comment %} <a href="#" class="btn btn-sm btn-link">Blog</a>
           <a href="#" class="btn btn-sm btn-link">Company</a>
           <a href="#" class="btn btn-sm btn-link">Sign in</a> {% endcomment %}
         </div>
@@ -51,9 +51,9 @@
               </svg>
               <span class="sr-only">Close Menu</span>
             </button>
-            <a href="#" class="w-full btn btn-link">About</a>
-            {% comment %} <a href="#" class="w-full btn btn-link">Pricing</a>
-            <a href="#" class="w-full btn btn-link">Blog</a>
+            <a href="{% url "moody_home" %}" class="w-full btn btn-link">Moody AI</a>
+            <a href="{% url "about_page" %}" class="w-full btn btn-link">About</a>
+            {% comment %} <a href="#" class="w-full btn btn-link">Blog</a>
             <a href="#" class="w-full btn btn-link">Company</a>
             <a href="#" class="w-full btn btn-link">Sign in</a> {% endcomment %}
           </div>

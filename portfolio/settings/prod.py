@@ -30,3 +30,4 @@ if RENDER_EXTERNAL_HOSTNAME:
 ROOT_URLCONF = 'portfolio.urls'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEBUG_PROPAGATE_EXCEPTIONS = True
