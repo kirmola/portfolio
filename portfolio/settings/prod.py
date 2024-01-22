@@ -29,5 +29,9 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 ROOT_URLCONF = 'portfolio.urls'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 DEBUG_PROPAGATE_EXCEPTIONS = True
