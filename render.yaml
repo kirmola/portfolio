@@ -7,7 +7,7 @@ services:
   - type: web
     name: portfolio
     runtime: python
-    region: singapore
+    region: frankfurt
     plan: free
     buildCommand: "./build.sh"
     startCommand: "gunicorn portfolio.wsgi:application"
