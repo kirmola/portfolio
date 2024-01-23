@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     MoodyIndexView,
-    GenerateResponseView,
+    GenerateResponseView
 )
 
 urlpatterns = [
