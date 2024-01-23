@@ -7,58 +7,61 @@
   <script src="{% static 'js/htmx.min.js' %}"></script>
 {% endblock %}
 {% block content %}
-  <section class="px-4 py-12 mx-auto max-w-7xl">
+  <section class="px-4 md:py-12 py-2 mx-auto max-w-7xl">
     <div class="mx-auto md:w-11/12 xl:w-8/12 md:text-center">
       <h1 class="mb-3 text-4xl font-bold text-gray-900 md:text-5xl md:leading-tight md:font-extrabold">Customize Moody, your way!</h1>
       <p class="font-bold text-xl mb-3">Explore Moody AI, it's waiting to talk to you, or not maybe!</p>
       <div class="pt-1 mx-auto mb-8 lg:grid-cols-6 md:w-11/12">
-        <div class="mb-8 my-8 md:text-2xl font-bold">{{ form.query }}</div>
-        <div class="space-y-8">
+        <div class="mb-8 my-8">{{ form.query }}</div>
+        <div class="space-y-4">
           <div class="grid grid-cols-2 gap-4 my-10 md:text-2xl">
             <div class="">{{ form.language_style }}</div>
             <div class="">{{ form.mood_style }}</div>
           </div>
-          <button hx-get="" hx-indicator="#spinner" hx-target="#results" hx-include="*" hx-swap="none" class="btn btn-outline-primary rounded-full w-full md:text-3xl" onclick="startSSE();document.getElementById('results').innerHTML=''">Trigger Moody 
-            <div id="spinner" class="htmx-indicator spinner text-primary" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            </button>
+          {% csrf_token %}
+          <button onclick="document.getElementById('results').innerHTML='';doActions();" hx-post="{% url 'generate_response' %}" hx-indicator="#spinnerdiv" hx-target="#generated_results" hx-include="*" hx-swap="innerHTML" class="btn btn-outline-primary rounded-full w-full md:text-3xl" >Ask Moody!</button>
         </div>
       </div>
+      
+      <div class="space-y-2">
+        <div class="alert bg-primary-light text-primary alert-closable md:text-xl" role="alert" x-data="{ open: true }" x-show.transition="open">
+          Remember! Don't ask it something it doesn't like. Why? Well, Moody is actually Moody!
+          <button class="rounded-l-none btn btn-light-primary btn-sm alert-close" @click="open = false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+      </div>
+
+      <p></p>
     </div>
   </section>
 
-  
 
-
-  {% comment %} <div class="mx-3 grid grid-cols-1">
-    <div class="card">
-      <div class="card-header">
-        <div id="preparing_results" class="font-semibold text-gray-900">Preparing results....</div>
-      </div>
-      <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-    </div>
-  </div> {% endcomment %}
-  
-  
   <div id="results"></div>
+  
 
-  {% comment %} <script>
-    function startSSE() {
-      let query = document.getElementById('id_query').value;
-      let mood_style = document.getElementById('id_mood_style').value;
-      let language_style = document.getElementById('id_language_style').value;
-      let source = new EventSource(`{% url "parsemoodform" %}?query=${encodeURI(query)}&language_style=${language_style}&mood_style=${mood_style}`) // Workers AI streaming endpoint
-      el = document.getElementById('results')
-      source.onmessage = (event) => {
-        if (event.data === "[DONE]") {
-          source.close();
-          return;
-        }
-        const data = JSON.parse(event.data)
-        el.innerHTML += data.response;
-      }
 
+  <script>
+    function doActions() {
+      document.getElementById("results").innerHTML = `
+      
+      <div class="px-1 mx-auto max-w-2xl grid grid-cols-1 pt-20">
+        <div class="card">
+          <div id="card-header" class="card-header text-primary ">Generating Response....</div>
+          <div id="generated_results" class="card-body font-bold text-lg"> </div>
+          <div id="spinnerdiv" class="htmx-indicator flex items-center justify-center h-32 card-body">
+            <div class="spinner" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      `
+      const targetElement = document.getElementById('generated_results');
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.body.addEventListener("htmx:afterSwap", function(event){
+        document.getElementById("card-header").innerHTML = "Results";
+      })
     }
-  </script> {% endcomment %}
+  </script>
 {% endblock %}
