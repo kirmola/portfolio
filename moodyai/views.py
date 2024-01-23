@@ -33,7 +33,7 @@ class GenerateResponseView(TemplateView):
         mood_style = self.request.POST.get("mood_style")
         language_style = self.request.POST.get("language_style")
         response = self.generate_response(query, mood_style, language_style)
-        result = response["response"]
+        result = response["response"].replace('\n', '<br>')
         return JsonResponse(result, json_dumps_params={
             "ensure_ascii": False
         }, safe=False)
