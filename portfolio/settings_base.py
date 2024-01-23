@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
 ]+[
-    "moodyai"
+    "moodyai",
+    "logonai",
 ]
 
 TAILWIND_APP_NAME = 'theme'
