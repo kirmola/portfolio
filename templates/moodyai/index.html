@@ -1,8 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'moodyai/base.html' %}
 {% load static %}
-{% block title %}
-  Welcome to Moody AI
-{% endblock %}
+
+{% block seo_tags %}
+{{meta_tags}}
+{{og_tags}}
+{% endblock seo_tags %}
 {% block custom_css_js %}
   <script src="{% static 'js/htmx.min.js' %}"></script>
 {% endblock %}

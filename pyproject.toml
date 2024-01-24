@@ -15,6 +15,7 @@ requests = "^2.31.0"
 dj-database-url = "^2.1.0"
 whitenoise = {extras = ["brotli"], version = "^6.6.0"}
 gunicorn = "^21.2.0"
+pillow = "^10.2.0"
 
 
 [tool.poetry.group.dev.dependencies]

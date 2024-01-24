@@ -1,1 +1,65 @@
-{% extends "base.html" %}
+{% extends 'logonai/base.html' %}
+{% load static %}
+
+{% block seo_tags %}
+{{meta_tags}}
+{{og_tags}}
+{% endblock seo_tags %}
+
+{% block custom_css_js %}
+  <script src="{% static 'js/htmx.min.js' %}"></script>
+{% endblock %}
+{% block content %}
+  <section class="px-4 md:py-12 py-2 mx-auto max-w-7xl">
+    <div class="mx-auto md:w-11/12 xl:w-8/12 md:text-center">
+      <h1 class="mb-3 text-4xl font-bold text-gray-900 md:text-5xl md:leading-tight md:font-extrabold">Presenting Logon, The Image Generator</h1>
+      <form class="pt-1 mx-auto mb-8 lg:grid-cols-6 md:w-11/12">
+          {% csrf_token %}
+        <div class="mb-8 my-8">{{ form.prompt }}</div>
+        <div class="space-y-4">
+          <button type="submit" onclick="document.getElementById('results').innerHTML='';doActions();" hx-post="{% url 'generate_image' %}" hx-indicator="#spinnerdiv" hx-target="#generated_results" hx-include="*" hx-swap="innerHTML" class="btn btn-outline-primary rounded-full w-full md:text-3xl" >Generate Image!</button>
+        </div>
+    </form>
+      
+      <div class="space-y-2">
+        <div class="alert bg-primary-light text-primary alert-closable md:text-xl" role="alert" x-data="{ open: true }" x-show.transition="open">
+          Remember! Don't ask Logon to generate something explict, it may decline your request, or not maybe.
+          <button class="rounded-l-none btn btn-light-primary btn-sm alert-close" @click="open = false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+      </div>
+
+      <p></p>
+    </div>
+  </section>
+
+
+  <div id="results"></div>
+  
+
+
+  <script>
+    function doActions() {
+      document.getElementById("results").innerHTML = `
+      
+      <div class="px-1 mx-auto max-w-2xl grid grid-cols-1 pt-20">
+        <div class="card">
+          <div id="card-header" class="card-header text-primary ">Please be patient as image generation may take upto 1 minute...</div>
+          <div id="generated_results" class="card-body font-bold text-lg"> </div>
+          <div id="spinnerdiv" class="htmx-indicator flex items-center justify-center h-32 card-body">
+            <div class="spinner" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      `
+      const targetElement = document.getElementById('generated_results');
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.body.addEventListener("htmx:afterSwap", function(event){
+        document.getElementById("card-header").innerHTML = "Results";
+      })
+    }
+  </script>
+{% endblock %}
