@@ -58,6 +58,7 @@
       const targetElement = document.getElementById('generated_results');
       source.onmessage = (event) => {
         if (event.data === "[DONE]") {
+          document.getElementById("card-header").innerHTML = "Results";
           source.close();
           return;
         }
@@ -67,12 +68,11 @@
       }
       source.onerror = (error) => {
         targetElement.innerHTML = "Something is not quite right.. ";
+        document.getElementById("card-header").innerHTML = "Results";
+
         source.close()
       }
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.body.addEventListener("htmx:afterSwap", function(event){
-        document.getElementById("card-header").innerHTML = "Results";
-      })
     }
   </script>
 {% endblock %}
