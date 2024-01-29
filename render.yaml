@@ -9,7 +9,6 @@ services:
     runtime: python
     region: singapore
     plan: free
-    region: singapore
     buildCommand: "./build.sh"
     startCommand: "gunicorn portfolio.wsgi:application"
     envVars:

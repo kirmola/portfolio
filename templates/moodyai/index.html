@@ -21,7 +21,7 @@
             <div class="">{{ form.mood_style }}</div>
           </div>
           {% csrf_token %}
-          <button onclick="document.getElementById('results').innerHTML='';doActions();" hx-post="{% url 'generate_response' %}" hx-indicator="#spinnerdiv" hx-target="#generated_results" hx-include="*" hx-swap="innerHTML" class="btn btn-outline-primary rounded-full w-full md:text-3xl" >Ask Moody!</button>
+          <button onclick="document.getElementById('results').innerHTML='';doActions();" hx-target="#generated_results" class="btn btn-outline-primary rounded-full w-full md:text-3xl" >Ask Moody!</button>
         </div>
       </div>
       
@@ -48,22 +48,33 @@
       <div class="px-1 mx-auto max-w-2xl grid grid-cols-1 pt-20">
         <div class="card">
           <div id="card-header" class="card-header text-primary ">Generating Response....</div>
-          <div id="generated_results" class="card-body font-bold text-lg"> </div>
-          <div id="spinnerdiv" class="htmx-indicator flex items-center justify-center h-32 card-body">
-            <div class="spinner" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-
+          <div id="generated_results" class="card-body font-bold text-lg"></div>
         </div>
       </div>
       
       `
+      const query = document.getElementById("id_query").value;
+      const mood_style = document.getElementById("id_mood_style").value;
+      const language_style = document.getElementById("id_language_style").value;
+      const source = new EventSource(`{% url "streaming_data" %}?query=${encodeURI(query)}&mood_style=${mood_style}&language_style=${language_style}`); // Workers AI streaming endpoint
       const targetElement = document.getElementById('generated_results');
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.body.addEventListener("htmx:afterSwap", function(event){
+      source.onmessage = (event) => {
+        if (event.data === "[DONE]") {
+          document.getElementById("card-header").innerHTML = "Results";
+          source.close();
+          return;
+        }
+        const data = JSON.parse(event.data);
+        targetElement.innerHTML += data.response;
+        console.log(data.response)
+      }
+      source.onerror = (error) => {
+        targetElement.innerHTML = "Something is not quite right.. ";
         document.getElementById("card-header").innerHTML = "Results";
-      })
+
+        source.close()
+      }
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   </script>
 {% endblock %}
