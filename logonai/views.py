@@ -10,7 +10,7 @@ from PIL import Image
 from io import BytesIO
 from django.core.files.temp import NamedTemporaryFile
 from portfolio.seoclass import SEOClass
-from base64 import b64encode, b64decode
+from base64 import b64encode
 class LogonIndexView(TemplateView):
     template_name = "logonai/index.html"
 
@@ -43,13 +43,12 @@ class GenerateImageView(TemplateView):
             async with session.post(API_BASE_URL, json=inputs) as response:
                 return await response.read()
             
-    async def upload_to_s3(self, filename, data):
+    async def upload_to_s3(self, filename, binary_data):
             s3 = boto3.resource('s3',
                 endpoint_url=f'https://{environ.get("CF_ACCOUNT_ID")}.r2.cloudflarestorage.com',
                 aws_access_key_id=environ.get("CF_ACCESS_KEY_ID"),
                 aws_secret_access_key=environ.get("CF_SECRET_ACCESS_KEY")
             )
-            binary_data = b64decode(data)
             s3.Bucket(environ["BUCKET_NAME"]).put_object(Key=filename, Body=binary_data, Metadata={
                 "Content-Type": "image/png"
             })
