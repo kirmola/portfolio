@@ -5,9 +5,9 @@
 
 services:
   - type: web
-    name: portfolio
+    name: amanrawat-portfolio
     runtime: python
-    region: frankfurt
+    region: singapore
     plan: free
     buildCommand: "./build.sh"
     startCommand: "gunicorn portfolio.wsgi:application"
