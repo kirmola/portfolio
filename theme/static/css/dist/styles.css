@@ -1593,6 +1593,11 @@ a.list-item.list-active:hover {
   margin: 0.5rem;
 }
 
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1606,16 +1611,6 @@ a.list-item.list-active:hover {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .mb-3 {
@@ -1632,10 +1627,6 @@ a.list-item.list-active:hover {
 
 .block {
   display: block;
-}
-
-.inline-block {
-  display: inline-block;
 }
 
 .flex {
@@ -1662,16 +1653,16 @@ a.list-item.list-active:hover {
   height: 8rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
 .h-5 {
   height: 1.25rem;
 }
 
 .h-screen {
   height: 100vh;
-}
-
-.h-4 {
-  height: 1rem;
 }
 
 .w-5 {
@@ -1682,20 +1673,16 @@ a.list-item.list-active:hover {
   width: 100%;
 }
 
-.w-9\/12 {
-  width: 75%;
-}
-
 .max-w-2xl {
   max-width: 42rem;
 }
 
-.max-w-7xl {
-  max-width: 80rem;
-}
-
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
 }
 
 .flex-none {
@@ -1782,21 +1769,22 @@ a.list-item.list-active:hover {
   border-radius: 0.25rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.rounded-xl {
-  border-radius: 0.75rem;
 }
 
 .rounded-l-none {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .bg-gray-50 {
@@ -1809,19 +1797,14 @@ a.list-item.list-active:hover {
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
 .bg-red-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -1876,6 +1859,11 @@ a.list-item.list-active:hover {
 
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-4xl {
@@ -1978,12 +1966,12 @@ a.list-item.list-active:hover {
     display: none;
   }
 
-  .md\:w-11\/12 {
-    width: 91.666667%;
+  .md\:h-16 {
+    height: 4rem;
   }
 
-  .md\:w-72 {
-    width: 18rem;
+  .md\:w-11\/12 {
+    width: 91.666667%;
   }
 
   .md\:grid-cols-3 {
@@ -1994,8 +1982,8 @@ a.list-item.list-active:hover {
     flex-direction: row;
   }
 
-  .md\:rounded-2xl {
-    border-radius: 1rem;
+  .md\:rounded-full {
+    border-radius: 9999px;
   }
 
   .md\:py-12 {

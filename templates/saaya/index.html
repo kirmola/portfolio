@@ -18,16 +18,17 @@
 
       <div class="pt-1 mx-auto mb-8 lg:grid-cols-6 md:w-11/12">
         <div class="mb-8 my-8">
-          <input type="text" name="query" class="form-input rounded-xl text-4xl" />
-        </div>
-        <div class="space-y-4">
-          <button hx-post="{% url 'getresults' %}" hx-target="#results" hx-swap="multi:#res1:innerHTML,#res2:innerHTML" type="submit" onclick="document.getElementById('results').innerHTML='';doActions();" hx-indicator="#spinnerdiv" class="btn btn-outline-primary inline-block md:w-72 rounded-lg md:rounded-2xl w-full md:text-3xl">Complete it!</button>
+          <input placeholder="Start Typing.."  oninput="startScroll();document.getElementById('results').innerHTML='';doActions();"  hx-post="{% url 'getresults' %}" hx-trigger="keydown changed, search" hx-sync="this:replace" hx-target="#results" hx-swap="multi:#res1:innerHTML,#res2:innerHTML" type="search" name="query" class="form-input md:rounded-full rounded-2xl md:h-16 text-2xl" >
         </div>
       </div>
     </form>
   </section>
   <div id="results"></div>
   <script>
+    function startScroll(){
+
+    }
+    
     function doActions() {
       em = document.getElementById('results')
       em.innerHTML = `
@@ -77,7 +78,7 @@
       
             
             `;
-      scrlto = document.getElementById('scrlto')
+      scrlto = document.getElementById('outerdiv')
       scrlto.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   </script>

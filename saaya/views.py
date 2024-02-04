@@ -13,8 +13,8 @@ async def getResults(request):
     result = await getExternalResults(query)
     if result:
         google_out = ''.join(f'<li class="list-item">{i}</li>' for i in result[0])
-        # bing_out = [f'<li class="list-item">{i}</li>' for i in result[2]]
-        ddg_out =  ''.join(f'<li class="list-item">{i}</li>' for i in result[1])
+        bing_out = ''.join(f'<li class="list-item">{i}</li>' for i in result[1])
+        ddg_out =  ''.join(f'<li class="list-item">{i}</li>' for i in result[2])
         return HttpResponse(
 
             f'''
@@ -31,7 +31,9 @@ async def getResults(request):
                     <div class="card">
                     <div class="card-header font-bold">Bing</div>
                     <div class="card-body">
-                        <p></p>
+                        <ul class="list list-flush">
+                        {bing_out}
+                        </ul>
                     </div>
                 </div>
                     <div class="card">
@@ -39,7 +41,7 @@ async def getResults(request):
                     <div class="card-body">
                         <ul class="list list-flush">
                         {ddg_out}
-                    </ul>
+                        </ul>
                     </div>
                 </div>
                 </div>
