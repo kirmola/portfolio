@@ -23,6 +23,7 @@ urlpatterns = [
     path('', HomePageView.as_view(), name="homepage"),
     path('moody-ai/', include("moodyai.urls")),
     path('logon-ai/', include("logonai.urls")),
+    path('saaya/', include("saaya.urls")),
     path('about/', PagesView.as_view(), name="about_page"),
     path('contact/', PagesView.as_view(), name="contact_page"),
 

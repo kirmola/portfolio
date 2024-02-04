@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django_htmx",
     'tailwind',
     'theme',
+    'saaya',
 ]+[
     "moodyai",
     "logonai",
