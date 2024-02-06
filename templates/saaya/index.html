@@ -7,6 +7,11 @@
 
 {% endblock %}
 
+{% block seo_tags %}
+{{meta_tags}}
+{{og_tags}}
+{% endblock seo_tags %}
+
 {% block content %}
 <div id="outerdiv" hx-ext="multi-swap">
 

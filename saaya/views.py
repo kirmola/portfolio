@@ -2,9 +2,21 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from .logics import getExternalResults
+from portfolio.seoclass import SEOClass
 
 def saayaIndex(request):
-    return render(request, "saaya/index.html")
+    tags = SEOClass(
+        title= "Saaya: An Autocomplete assistant",
+        description= "Saaya is an autocomplete tool which fetches data from popular search engines and display them to you on a single page.",
+        keywords= "Saaya, Google Autocomplete, Bing Autocomplete, DuckDuckGo Autocomplete, Autocomplete, Autocomplete assistant. Search Engine, Autosuggest",
+    )
+
+    meta_tags = tags.get_meta_tags()
+    og_tags = tags.get_open_graph_tags()
+    return render(request, "saaya/index.html", {
+        "meta_tags": meta_tags,
+        "og_tags": og_tags,
+    })
 
 
 @require_POST

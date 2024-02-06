@@ -25,7 +25,7 @@ class SEOClass():
         for name, content in meta_tags.items():
             if content:
                 meta_tags_name += f'<meta name="{name}" content="{content}">\n'
-        title_tag = f"<title>{self.title}</title>"
+        title_tag = f"<title>{self.title} | Kirmola in Lab</title>"
         return mark_safe(f"{title_tag}\n{meta_tags_name}")
 
     def get_open_graph_tags(self):
