@@ -2,7 +2,7 @@
 
 from django.utils.text import slugify
 from os import environ
-import aiohttp, asyncio, boto3
+# import aiohttp, asyncio, boto3
 import requests
 from django.shortcuts import render
 from django.views.generic import TemplateView
