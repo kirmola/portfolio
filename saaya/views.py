@@ -18,11 +18,11 @@ def saayaIndex(request):
         "og_tags": og_tags,
     })
 
-
+# until asyncio is fixed in python 3.12
 @require_POST
-async def getResults(request):
+def getResults(request):
     query = request.POST.get("query")
-    result = await getExternalResults(query)
+    result = getExternalResults(query)
     if result:
         google_out = ''.join(f'<li class="list-item">{i}</li>' for i in result[0])
         bing_out = ''.join(f'<li class="list-item">{i}</li>' for i in result[1])
@@ -61,3 +61,45 @@ async def getResults(request):
         )
     else:
         return HttpResponse('''  <div class="alert text-red-700 bg-red-100 mx-1 md:mx-auto max-w-3xl " role="alert">Your request can't be completed right now. Please try again.</div> ''')
+# @require_POST
+# async def getResults(request):
+#     query = request.POST.get("query")
+#     result = await getExternalResults(query)
+#     if result:
+#         google_out = ''.join(f'<li class="list-item">{i}</li>' for i in result[0])
+#         bing_out = ''.join(f'<li class="list-item">{i}</li>' for i in result[1])
+#         ddg_out =  ''.join(f'<li class="list-item">{i}</li>' for i in result[2])
+#         return HttpResponse(
+
+#             f'''
+
+#         <div id="resultsdiv" class="grid grid-cols-1 gap-3 md:grid-cols-3 mx-auto px-1 max-w-7xl">
+#                     <div class="card" id="scrlto">
+#                     <div class="card-header font-bold">Google</div>
+#                     <div class="card-body">
+#                     <ul class="list list-flush">
+#                         {google_out}
+#                     </ul>
+#                     </div>
+#                     </div>
+#                     <div class="card">
+#                     <div class="card-header font-bold">Bing</div>
+#                     <div class="card-body">
+#                         <ul class="list list-flush">
+#                         {bing_out}
+#                         </ul>
+#                     </div>
+#                 </div>
+#                     <div class="card">
+#                     <div class="card-header font-bold">DuckDuckGo</div>
+#                     <div class="card-body">
+#                         <ul class="list list-flush">
+#                         {ddg_out}
+#                         </ul>
+#                     </div>
+#                 </div>
+#                 </div>
+#     '''
+#         )
+#     else:
+#         return HttpResponse('''  <div class="alert text-red-700 bg-red-100 mx-1 md:mx-auto max-w-3xl " role="alert">Your request can't be completed right now. Please try again.</div> ''')
