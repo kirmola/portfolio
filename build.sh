@@ -3,6 +3,8 @@
 curl -sSL https://install.python-poetry.org | python3 -;
 export PATH="/vercel/.local/bin:$PATH";
 
+# Install poetry packages
+poetry install;
 poetry self add poetry-plugin-export;
 poetry export --without-hashes --with dev > requirements.txt;
 
