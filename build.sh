@@ -3,12 +3,12 @@
 curl -sSL https://install.python-poetry.org | python3 -;
 export PATH="/vercel/.local/bin:$PATH";
 poetry install;
-poetry self add poetry-plugin-export
-poetry export --without-hashes --with dev > requirements.txt
+# poetry self add poetry-plugin-export
+# poetry export --without-hashes --with dev > requirements.txt
 
 
 # Install from requirements.txt
-pip3 install -r requirements.txt
+# pip3 install -r requirements.txt
 
 # Generate CSS
 cd theme/static_src;
