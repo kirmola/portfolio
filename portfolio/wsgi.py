@@ -13,4 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings.prod')
 
-app = get_wsgi_application()
+application = get_wsgi_application()
+
+#   For vercel exclusively
+app = application
