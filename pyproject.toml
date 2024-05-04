@@ -6,7 +6,7 @@ authors = ["Aman Rawat <ar.rawataman@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 django = "^5.0.2"
 django-tailwind = "^3.8.0"
 django-htmx = "^1.17.2"
