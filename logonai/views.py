@@ -1,7 +1,6 @@
 # Async functions are suspeded until aiohttp is fixed for python 3.12
 
 from django.utils.text import slugify
-from os import environ
 # import aiohttp, asyncio, boto3
 import requests
 from django.shortcuts import render
@@ -9,9 +8,6 @@ from django.views.generic import TemplateView
 from .forms import LogonForm
 import requests
 from django.http import HttpResponse
-from PIL import Image
-from io import BytesIO
-from django.core.files.temp import NamedTemporaryFile
 from portfolio.seoclass import SEOClass
 from base64 import b64encode
 class LogonIndexView(TemplateView):
