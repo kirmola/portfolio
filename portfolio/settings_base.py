@@ -133,7 +133,8 @@ STATICFILES_DIRS = BASE_DIR/'static',
 
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR/'staticfiles'
+# STATIC_ROOT = BASE_DIR/'staticfiles'           # For render
+STATIC_ROOT = BASE_DIR/'staticfiles'/'static'    # For vercel
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
