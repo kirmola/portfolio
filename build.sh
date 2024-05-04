@@ -1,6 +1,6 @@
 
 # Install Poetry
-curl -sSL https://install.python-poetry.org | python3 -;
+curl -sSL https://install.python-poetry.org | python3.12 -;
 export PATH="/vercel/.local/bin:$PATH";
 poetry install;
 poetry --version
