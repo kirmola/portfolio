@@ -17,7 +17,7 @@ MIDDLEWARE+=[
 
 DATABASES = {}
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = [".vercel.app", ".kirmola.dev"]
 
 RENDER_EXTERNAL_HOSTNAME = environ.get('RENDER_EXTERNAL_HOSTNAME')
 
