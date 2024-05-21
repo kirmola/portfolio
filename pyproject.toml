@@ -11,7 +11,7 @@ django = "^5.0.2"
 django-tailwind = "^3.8.0"
 django-htmx = "^1.17.2"
 django-autoslug = "^1.9.9"
-requests = "^2.31.0"
+requests = "^2.32.0"
 dj-database-url = "^2.1.0"
 whitenoise = {extras = ["brotli"], version = "^6.6.0"}
 gunicorn = "^21.2.0"
