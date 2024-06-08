@@ -1,13 +1,14 @@
 <header class="z-30 w-full px-2 py-4 bg-white sm:px-4">
     <div class="flex items-center justify-between mx-auto max-w-7xl">
-      <a href="/" title="Home Page" class="flex items-center text-xl md:text-3xl">
-        Portfolio
+      <a href="/" title="Home Page" class="flex items-center text-lg font-semibold md:text-xl">
+        Apps Collection
         <span class="sr-only">Home</span>
       </a>
       <div class="flex items-center space-x-1">
         <div class="hidden space-x-1 md:inline-flex">
           <a href="{% url "about_page" %}" class="btn btn-sm btn-link">About</a>
           <a href="{% url "contact_page" %}" class="btn btn-sm btn-link">Contact</a>
+          <a href="//kirmola.dev" class="btn btn-sm btn-outline-primary">Visit Website</a>
         </div>
         {% comment %} <a href="#" class="btn btn-sm btn-primary">Get Started</a> {% endcomment %}
         <div class="inline-flex md:hidden" x-data="{ open: false }">
@@ -50,6 +51,8 @@
             </button>
             <a href="{% url "about_page" %}" class="w-full btn btn-link">About</a>
             <a href="{% url "contact_page" %}" class="w-full btn btn-link">Contact</a>
+            <a href="//kirmola.dev" class="btn btn-sm btn-outline-primary">Visit Website</a>
+
           </div>
         </div>
       </div>
