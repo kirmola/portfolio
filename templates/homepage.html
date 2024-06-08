@@ -13,8 +13,8 @@
   <p class="mb-20 text-xl text-gray-500">These web apps solve a very certain problems</p>
   <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
     <div>
-      <a href="#">
-        <img src="{% static 'images/Moody.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Moody" loading="lazy" />
+      <a href="{% url 'moody_home' %}">
+        <img src="{% static 'images/Moody.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded-xl" alt="Moody" loading="lazy" />
       </a>
       <h2 class="mb-2 text-lg font-semibold text-gray-900">
         <a href="{% url 'moody_home' %}" class="text-gray-900 hover:text-purple-700">Moody: An AI Chatbot</a>
@@ -24,8 +24,8 @@
       </p>
     </div>
     <div>
-      <a href="#">
-        <img src="{% static 'images/Logon.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Logon" loading="lazy" />
+      <a href="{% url 'logon_home' %}">
+        <img src="{% static 'images/Logon.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded-xl" alt="Logon" loading="lazy" />
       </a>
       <h2 class="mb-2 text-lg font-semibold text-gray-900">
         <a href="{% url 'logon_home' %}" class="text-gray-900 hover:text-purple-700">Logon: Generate Images from text</a>
@@ -35,8 +35,8 @@
       </p>
     </div>
     <div>
-      <a href="#">
-        <img src="{% static 'images/Saaya.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Saaya" loading="lazy" />
+      <a href="{% url 'saaya_home' %}">
+        <img src="{% static 'images/Saaya.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded-xl" alt="Saaya" loading="lazy" />
       </a>
       <h2 class="mb-2 text-lg font-semibold text-gray-900">
         <a href="{% url 'saaya_home' %}" class="text-gray-900 hover:text-purple-700">Saaya: An Autocomplete Assistant</a>
@@ -53,22 +53,22 @@
   <p class="mb-20 text-xl text-gray-500">These are dedicated projects for showcasing my work</p>
   <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
     <div>
-      <a href="#">
-        <img src="{% static 'images/Ytrends.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="YTrends" loading="lazy" />
+      <a href="//ytrends.kirmola.dev">
+        <img src="{% static 'images/Ytrends.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded-xl" alt="YTrends" loading="lazy" />
       </a>
       <h2 class="mb-2 text-lg font-semibold text-gray-900">
-        <a href="{% url 'moody_home' %}" class="text-gray-900 hover:text-purple-700">YTrends: Trends on Youtube</a>
+        <a href="//ytrends.kirmola.dev" class="text-gray-900 hover:text-purple-700">YTrends: Trends on Youtube</a>
       </h2>
       <p class="mb-3 text-md font-normal text-gray-500">
         Get Latest Youtube Trending Data for all countries in the world
       </p>
     </div>
     <div>
-      <a href="#">
-        <img src="{% static 'images/QuotesApp.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Moody" loading="lazy" />
+      <a href="//quotes.kirmola.dev">
+        <img src="{% static 'images/QuotesApp.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded-xl" alt="Moody" loading="lazy" />
       </a>
       <h2 class="mb-2 text-lg font-semibold text-gray-900">
-        <a href="#" class="text-gray-900 hover:text-purple-700">QuotesApp</a>
+        <a href="//quotes.kirmola.dev" class="text-gray-900 hover:text-purple-700">QuotesApp</a>
       </h2>
       <p class="mb-3 text-md font-normal text-gray-500">
         Read the Quotes by famous authors of the world
