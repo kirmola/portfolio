@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block seo_tags %}
 {{meta_tags}}
 {{og_tags}}
@@ -9,101 +9,70 @@
 {% block content %}
 
 <section class="px-4 py-24 mx-auto max-w-7xl">
-  <div class="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
-    <h1 class="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
-      Welcome to <span
-        class="block w-full text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500 lg:inline">Aman's
-        Dev Den</span></br> A simple portfolio.
-    </h1>
-    <p class="px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24">
-      Hi, I am Aman, a passionate developer from India who loves to build simple yet productive stuff.
-    </p>
-    <div class="mb-4 space-x-0 md:space-x-2 md:mb-8">
-      <a class="inline-flex items-center justify-center w-full mb-2 btn btn-primary btn-lg sm:w-auto sm:mb-0"
-        href="{% url 'contact_page' %}">
-        Get in Touch
-        <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd" />
-        </svg>
+  <h2 class="mb-2 text-3xl font-extrabold leading-tight text-gray-900">Web Apps</h2>
+  <p class="mb-20 text-xl text-gray-500">These web apps solve a very certain problems</p>
+  <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+    <div>
+      <a href="#">
+        <img src="{% static 'images/Moody.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Moody" loading="lazy" />
       </a>
-      <a id="scrollButton" class="inline-flex items-center justify-center w-full mb-2 btn btn-light btn-lg sm:w-auto sm:mb-0" href="#works">
-        See my work
-        <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M6.672 1.911a1 1 0 10-1.932.518l.259.966a1 1 0 001.932-.518l-.26-.966zM2.429 4.74a1 1 0 10-.517 1.932l.966.259a1 1 0 00.517-1.932l-.966-.26zm8.814-.569a1 1 0 00-1.415-1.414l-.707.707a1 1 0 101.415 1.415l.707-.708zm-7.071 7.072l.707-.707A1 1 0 003.465 9.12l-.708.707a1 1 0 001.415 1.415zm3.2-5.171a1 1 0 00-1.3 1.3l4 10a1 1 0 001.823.075l1.38-2.759 3.018 3.02a1 1 0 001.414-1.415l-3.019-3.02 2.76-1.379a1 1 0 00-.076-1.822l-10-4z"
-            clip-rule="evenodd" />
-        </svg>
+      <h2 class="mb-2 text-lg font-semibold text-gray-900">
+        <a href="{% url 'moody_home' %}" class="text-gray-900 hover:text-purple-700">Moody: An AI Chatbot</a>
+      </h2>
+      <p class="mb-3 text-md font-normal text-gray-500">
+        Chat with a chatbot by customising it's mood according to your own
+      </p>
+    </div>
+    <div>
+      <a href="#">
+        <img src="{% static 'images/Logon.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Logon" loading="lazy" />
       </a>
+      <h2 class="mb-2 text-lg font-semibold text-gray-900">
+        <a href="{% url 'logon_home' %}" class="text-gray-900 hover:text-purple-700">Logon: Generate Images from text</a>
+      </h2>
+      <p class="mb-3 text-md font-normal text-gray-500">
+        A simple old school text to image generator
+      </p>
+    </div>
+    <div>
+      <a href="#">
+        <img src="{% static 'images/Saaya.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Saaya" loading="lazy" />
+      </a>
+      <h2 class="mb-2 text-lg font-semibold text-gray-900">
+        <a href="{% url 'saaya_home' %}" class="text-gray-900 hover:text-purple-700">Saaya: An Autocomplete Assistant</a>
+      </h2>
+      <p class="mb-3 text-md font-normal text-gray-500">
+        Get search engine autocomplete data
+      </p>
+      
     </div>
   </div>
 </section>
-<script>
-  document.getElementById('scrollButton').addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent default anchor behavior
-    const worksSection = document.getElementById('works');
-    worksSection.scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-     
-</script>
-
-<section class="mx-auto max-w-7xl" id="works">
-  <div class="px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-    <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
-      <div class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left">
-        <h2 class="text-3xl font-bold sm:text-4xl">See my work</h2>
-
-        <p class="mt-4 text-gray-600">
-          Here are some mini projects I made for learning
-        </p>
-
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        <a class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="{% url 'moody_home' %}">
-
-          <h2 class="mt-2 font-bold">Moody AI</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-gray-600">
-            A Simple Chatbot Application
-          </p>
-        </a>
-
-        <a class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="{% url 'logon_home' %}">
-
-          <h2 class="mt-2 font-bold">Logon AI</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-gray-600">
-            A Text-to-Image Generation Application
-          </p>
-        </a>
-
-        <a class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="{% url 'saaya_home' %}">
-
-          <h2 class="mt-2 font-bold">Saaya</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-gray-600">
-            A Tool to fetch Autocomplete data from search engines
-          </p>
-        </a>
-
-        <a class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="https://ytrends.kirmola.dev">
-
-          <h2 class="mt-2 font-bold">YTrends</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-gray-600">
-            A Tool to display YouTube Trending for all countries
-          </p>
-        </a>
-
-      </div>
+<section class="px-4 py-24 mx-auto max-w-7xl">
+  <h2 class="mb-2 text-3xl font-extrabold leading-tight text-gray-900">Other Projects</h2>
+  <p class="mb-20 text-xl text-gray-500">These are dedicated projects for showcasing my work</p>
+  <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+    <div>
+      <a href="#">
+        <img src="{% static 'images/Ytrends.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="YTrends" loading="lazy" />
+      </a>
+      <h2 class="mb-2 text-lg font-semibold text-gray-900">
+        <a href="{% url 'moody_home' %}" class="text-gray-900 hover:text-purple-700">YTrends: Trends on Youtube</a>
+      </h2>
+      <p class="mb-3 text-md font-normal text-gray-500">
+        Get Latest Youtube Trending Data for all countries in the world
+      </p>
+    </div>
+    <div>
+      <a href="#">
+        <img src="{% static 'images/QuotesApp.png' %}" class="object-cover w-full h-56 mb-5 bg-center rounded" alt="Moody" loading="lazy" />
+      </a>
+      <h2 class="mb-2 text-lg font-semibold text-gray-900">
+        <a href="#" class="text-gray-900 hover:text-purple-700">QuotesApp</a>
+      </h2>
+      <p class="mb-3 text-md font-normal text-gray-500">
+        Read the Quotes by famous authors of the world
+      </p>
     </div>
   </div>
 </section>
