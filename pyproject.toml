@@ -15,7 +15,7 @@ requests = "^2.31.0"
 dj-database-url = "^2.1.0"
 whitenoise = {extras = ["brotli"], version = "^6.6.0"}
 gunicorn = "^21.2.0"
-aiohttp = "^3.9.2"
+aiohttp = "^3.10.2"
 boto3 = "^1.34.29"
 celery = "^5.3.6"
 beautifulsoup4 = "^4.12.3"
